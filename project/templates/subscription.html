@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/317/334/429/working-out-exercise-barbell-gyms-wallpaper-preview.jpg');
+    color: #007BFF;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container_h1{
+    background-color: #ffffff75;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: transparent;
+    backdrop-filter: blur(100px);
+    border-radius: 10px;
+    /* border: 2px solid white;
+    box-shadow: 0 0 10px white; */
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    background-color: pink;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #ffffff75;
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    color: #ffffff75;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.cta {
+    display: inline-block;
+    text-decoration: none;
+    color: yellow;
+    border: 2px solid yellow;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 10px #0056b3;
+}
+
+@media (max-width: 768px) {
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plan {
+        width: 90%;
+    }
+}
+.plan-basic {
+    border: 2px solid #007BFF;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container_h1">
+            <h1>Choose Your Subscription Plan</h1>
+        </div>
+        <div class="plans">
+            <div class="plan basic">
+                <h2>Basic</h2>
+                <p class="price">₹500/month</p>
+                <ul>
+                    <li>Access to basic courses</li>
+                    <li>Community support</li>
+                    <li>Monthly newsletters</li>
+                </ul>
+                <a class="cta" href="payment">Subscribe Now</a>
+            </div>
+            <div class="plan pro">
+                <h2>Pro</h2>
+                <p class="price">₹800/month</p>
+                <ul>
+                    <li>Access to all courses</li>
+                    <li>Priority support</li>
+                    <li>Weekly webinars</li>
+                </ul>
+                <a class="cta" href="payment">Subscribe Now</a>
+            </div>
+            <div class="plan premium">
+                <h2>Premium</h2>
+                <p class="price">₹1200/month</p>
+                <ul>
+                    <li>All Pro features</li>
+                    <li>1-on-1 mentoring</li>
+                    <li>Exclusive content</li>
+                </ul>
+                <a class="cta" href="payment">Subscribe Now</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

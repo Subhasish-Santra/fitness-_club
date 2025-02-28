@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <style>
+body {
+    background:url("https://t4.ftcdn.net/jpg/03/17/72/47/360_F_317724775_qHtWjnT8YbRdFNIuq5PWsSYypRhOmalS.jpg");
+    font-family: Arial, sans-serif;
+    background-position: center;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background: transparent;
+    backdrop-filter: blur(35px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 500px;
+    text-align: center;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 17px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 90%;
+    font-size: 15px;
+}
+
+a.submit,
+a.reg {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+a.submit {
+    display: inline-block;
+    text-decoration: none;
+    color: yellow;
+    border: 2px solid yellow;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 70%;
+    transition: background-color 0.3s;
+}
+
+a.submit:hover {
+    background:linear-gradient(to right,black,grey,black);
+}
+
+a.reg {
+    display: inline-block;
+    text-decoration: none;
+    color: yellow;
+    border: 2px solid yellow;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 70%;
+    transition: background-color 0.3s;
+}
+
+a.reg:hover {
+    background-color: #007bb5;
+}
+h1{
+    background: white;
+    padding: 15px;
+    margin-left: 28%;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+
+}
+
+    </style>
+    
+    <form action="sign">
+        <h1>Sign In</h1>
+        <br>
+        <br>
+        <input type="email" name="A1" placeholder="Enter your email">
+        <br>
+        <br>
+        <input type="password" name="A2" placeholder="Enter your password">
+        <br>
+        <br>
+        <a class="submit" onclick="window.location.href='index_2'">Submit</a>
+        <br>
+        <br>
+        <a class="reg" onclick="window.location.href='registration'">Create Account</a>
+    </form>
+</body>
+</html>

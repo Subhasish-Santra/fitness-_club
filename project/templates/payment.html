@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method</title>
+     <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgb(48, 163, 215);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subscription-summary {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    background-color: #e7f3ff;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-form label {
+    margin-bottom: 5px;
+}
+
+.payment-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.cta {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Method</h1>
+        <div class="subscription-summary">
+            <h2>Your Selected Plan</h2>
+            <p><strong>Plan:</strong> <span id="selected-plan">Basic</span></p>
+            <p><strong>Price:</strong> <span id="selected-price">₹500/month</span></p>
+        </div>
+        <form id="payment-form">
+            <h2>Payment Details</h2>
+            <div class="form-group">
+                <label for="Card-type">Card Type:</label>
+                <select id="Card-type" name="Card-type" required>
+                  <option value="">Select type</option>
+                  <option value="Credit">Credit Card</option>
+                  <option value="Debit">Debit card</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <br>
+            <label for="card-name">Name on Card:</label>
+            <br>
+            <input type="text" id="card-name" name="card-name" required>
+            <br>
+            <br>
+            <label for="card-number">Card Number:</label>
+            <br>
+            <input type="text" id="card-number" name="card-number" required>
+            <br>
+            <br>
+            <label for="expiry-date">Expiry Date:</label>
+            <br>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            <br>
+            <br>
+            <label for="cvv">CVV:</label>
+            <br>
+            <input type="text" id="cvv" name="cvv" required>
+            <br>
+            <br>
+            <button type="submit" class="cta">Pay Now</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: linear-gradient(rgba(4,9,30,0.6), rgba(4,9,30,0.6)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_UFa_LM4B-cZwKT8Up19ej3DXnDVw0ia9fg&s');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background-color: #07a2f0;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.674);
+    background-image: linear-gradient(rgba(4,9,30,0.6), rgba(4,9,30,0.6)),url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_UFa_LM4B-cZwKT8Up19ej3DXnDVw0ia9fg&s'); /* Add your image path here */
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px solid #6528cf;
+    border-radius: 5px;
+}
+
+button.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #1607f0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+}
+
+button.submit:hover {
+    background-color: #dbdee0;
+}

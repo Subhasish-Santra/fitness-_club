@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Registration</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://t4.ftcdn.net/jpg/03/17/72/47/360_F_317724775_qHtWjnT8YbRdFNIuq5PWsSYypRhOmalS.jpg");
+      background-position: center;
+      background-size: cover;
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border-radius: 15%;
+    }
+
+    .form-container {
+      padding-right: 30px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      background: transparent;
+      backdrop-filter: blur(35px);
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      display: inline-block;
+      text-decoration: none;
+      color: yellow;
+      border: 2px solid yellow;
+      padding: 12px 34px;
+      font-size: 13px;
+      background: transparent;
+      width: 104%;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    #responseMessage {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1>Fitness Registration</h1>
+      <form id="registrationForm">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" id="submitBtn">Register</button>
+        </div>
+      </form>
+      <div id="responseMessage"></div>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      // Get form values
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value;
+      const gender = document.getElementById("gender").value;
+      const address = document.getElementById("address").value;
+      const password = document.getElementById("password").value;
+  
+      // Validate form inputs
+      if (!name || !age || !gender || !address || !password) {
+        alert("All fields are required.");
+        return;
+      }
+  
+      // Save data to database
+      fetch('/save_registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ name, age, email, gender, address, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Display success message
+          const responseMessage = document.getElementById("responseMessage");
+          responseMessage.textContent = "Registration Successful! Welcome to our Fitness Program.";
+          responseMessage.style.color = "green";
+  
+          // Optionally, reset the form after successful submission
+          document.getElementById("registrationForm").reset();
+  
+          // Redirect to index_2.html after 2 seconds
+          setTimeout(function() {
+            window.location.href = "index_2";
+          }, 2000);
+        } else {
+          alert("Registration failed. Please try again.");
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("An error occurred. Please try again.");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">                               
+
+</head>
+<body>
+    <h2>WELCOME TO OUR REG PAGE</h2>
+    <div>
+        <form action="reg">
+            <label for="name">Name :</label><br>
+            <input type="text" placeholder="Enter your name"  name="a1"> <br>
+            <label for="DOB">DOB :</label><br>
+            <input type="date" placeholder="Enter your DOB"  name="a2"><br>
+            <label for="email">Email :</label><br>
+            <input type="email" placeholder="Email" name="a3"><br>
+            <label for="contact">Contact :</label><br>
+            <input type="number" placeholder="Mobile No" name="a4"><br>
+            <label for="Gender">Gender :</label><br>
+            <input type="radio" id="male" value="male" placeholder="male" name="gender">Male
+            <input type="radio"  id="female"value="female" placeholder="female" name="gender"> Female <br>
+            <label for="country">Country :</label><br>
+            <select id="country"name="country">
+                <option value="select">--Select a country--</option>
+                <option value="usa">USA</option>
+                <option value="uk">uk</option>
+                <option value="germany">germany</option>
+                <option value="india">india</option>
+                <option value="italy">italy</option>
+                <option value="Russia">Russia</option>
+            </select><br>
+                <label for="password">password</label>
+                <input type="password" name="a5",placeholder="password">
+           
+            <button>submit</button>
+            <br>
+            <a href="signin">Already have an account</a>
+
+
+        </form>
+    </div>
+
+    <!-- Popup container -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Registration Successful!</h2>
+            <p>Thank you for registering. You can now log in with your credentials.</p>
+            <button class="close-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Simulate successful registration (for demo purposes)
+        // Call this function when the registration is successful
+        showPopup();
+    </script>
+
+</body>
+</html>
